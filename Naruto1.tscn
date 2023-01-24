@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/naruto1/Naruto.png" type="Texture" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Music and Sounds/Explosion.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Music and Sounds/Explosion1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Music and Sounds/Nature Sounds Pack/Footstep/FootstepGrass02.wav" type="AudioStream" id=9]
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -180,6 +182,10 @@ animations = [ {
 radius = 8.0
 height = 12.0
 
+[sub_resource type="CapsuleShape2D" id=34]
+radius = 3.33333
+height = 58.0
+
 [sub_resource type="CapsuleShape2D" id=33]
 radius = 7.0
 height = 52.0
@@ -199,7 +205,8 @@ script = ExtResource( 2 )
 position = Vector2( -14.5436, 36.64 )
 scale = Vector2( 1.32668, 1.32668 )
 frames = SubResource( 1 )
-animation = "stanceRight"
+animation = "right"
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -25, 54 )
@@ -215,11 +222,20 @@ position = Vector2( -27, 33 )
 wait_time = 1.95
 
 [node name="healthBar" parent="." instance=ExtResource( 4 )]
+visible = false
 margin_left = -41.0
 margin_top = -7.0
 margin_right = -41.0
 margin_bottom = -7.0
 rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 8 )]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -27, 31 )
+scale = Vector2( 2.4, 1 )
+shape = SubResource( 34 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 5 )]
 collision_mask = 8
@@ -240,6 +256,56 @@ mix_target = 1
 stream = ExtResource( 6 )
 volume_db = 18.631
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = 20.015
+area_mask = 0
 
+[node name="steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -1.0
+mix_target = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -38.0
+margin_top = -7.0
+margin_right = -17.0
+margin_bottom = -4.0
+
+[node name="Health" type="ColorRect" parent="."]
+margin_left = -43.0
+margin_top = -4.0
+margin_right = -9.0
+margin_bottom = -3.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Label" type="Label" parent="Health"]
+margin_left = -5.0
+margin_top = -14.0
+margin_right = 30.0
+align = 3
+valign = 2
+
+[node name="Red" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 34.0
+margin_bottom = 1.0
+color = Color( 0.41954, 0.452638, 0.457031, 1 )
+
+[node name="Bar" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 34.0
+margin_bottom = 1.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Timer2" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+
+[editable path="Hurtbox"]
 [editable path="Hitbox"]

@@ -1,10 +1,53 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://assets/enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
 [ext_resource path="res://tobirama.gd" type="Script" id=2]
 [ext_resource path="res://Stats.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Shadows/LargeShadow.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemies/Level1/77.png" type="Texture" id=6]
+[ext_resource path="res://assets/enemies/Level1/101.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemies/Level1/79.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemies/Level1/117.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemies/Level1/108.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemies/Level1/80.png" type="Texture" id=11]
+[ext_resource path="res://assets/enemies/Level1/109.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemies/Level1/76.png" type="Texture" id=13]
+[ext_resource path="res://assets/enemies/Level1/102.png" type="Texture" id=14]
+[ext_resource path="res://assets/enemies/Level1/118.png" type="Texture" id=15]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Music and Sounds/Hurt.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Music and Sounds/death sound effect/13.mp3" type="AudioStream" id=18]
+[ext_resource path="res://assets/tobirama2/124.png" type="Texture" id=19]
+[ext_resource path="res://assets/tobirama2/123.png" type="Texture" id=20]
+[ext_resource path="res://assets/tobirama2/122.png" type="Texture" id=21]
+[ext_resource path="res://assets/tobirama2/125.png" type="Texture" id=22]
+[ext_resource path="res://assets/tobirama2/129.png" type="Texture" id=23]
+[ext_resource path="res://assets/tobirama2/130.png" type="Texture" id=24]
+[ext_resource path="res://assets/tobirama2/131.png" type="Texture" id=25]
+[ext_resource path="res://assets/tobirama2/132.png" type="Texture" id=26]
+[ext_resource path="res://assets/tobirama2/128.png" type="Texture" id=27]
+[ext_resource path="res://assets/tobirama2/126.png" type="Texture" id=28]
+[ext_resource path="res://assets/tobirama2/133.png" type="Texture" id=29]
+[ext_resource path="res://assets/tobirama2/135.png" type="Texture" id=30]
+[ext_resource path="res://assets/tobirama2/127.png" type="Texture" id=31]
+[ext_resource path="res://assets/tobirama2/136.png" type="Texture" id=32]
+[ext_resource path="res://assets/tobirama2/140.png" type="Texture" id=33]
+[ext_resource path="res://assets/tobirama2/137.png" type="Texture" id=34]
+[ext_resource path="res://assets/tobirama2/138.png" type="Texture" id=35]
+[ext_resource path="res://assets/tobirama2/139.png" type="Texture" id=36]
+[ext_resource path="res://assets/tobirama2/150.png" type="Texture" id=37]
+[ext_resource path="res://assets/tobirama2/152.png" type="Texture" id=38]
+[ext_resource path="res://assets/tobirama2/151.png" type="Texture" id=39]
+[ext_resource path="res://assets/tobirama2/153.png" type="Texture" id=40]
+[ext_resource path="res://assets/tobirama2/154.png" type="Texture" id=41]
+[ext_resource path="res://assets/tobirama2/173.png" type="Texture" id=42]
+[ext_resource path="res://assets/tobirama2/146.png" type="Texture" id=43]
+[ext_resource path="res://assets/tobirama2/147.png" type="Texture" id=44]
+[ext_resource path="res://assets/tobirama2/184.png" type="Texture" id=45]
+[ext_resource path="res://assets/tobirama2/177.png" type="Texture" id=46]
+[ext_resource path="res://assets/tobirama2/182.png" type="Texture" id=47]
+[ext_resource path="res://assets/tobirama2/183.png" type="Texture" id=48]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -113,9 +156,24 @@ region = Rect2( 365, 1012, 73, 77 )
 
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
+"frames": [ SubResource( 1 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 46 ), SubResource( 3 ), ExtResource( 48 ), ExtResource( 47 ), SubResource( 6 ), ExtResource( 45 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "attack3",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
@@ -130,11 +188,11 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=19]
-radius = 23.0
+radius = 21.0
 height = 40.0
 
 [sub_resource type="CircleShape2D" id=20]
-radius = 175.003
+radius = 262.429
 
 [sub_resource type="CircleShape2D" id=25]
 radius = 107.075
@@ -142,14 +200,22 @@ radius = 107.075
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 8.5, 31.25 )
 
+[sub_resource type="CapsuleShape2D" id=27]
+radius = 12.6627
+height = 3.78918
+
 [node name="tobirama" type="KinematicBody2D"]
 position = Vector2( 109, 107 )
+collision_layer = 8
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 35, 48 )
 frames = SubResource( 18 )
-animation = "idle"
+animation = "attack3"
+frame = 20
+speed_scale = 0.929
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 32, 49 )
@@ -190,10 +256,56 @@ position = Vector2( 39.5, 90 )
 scale = Vector2( 1.03125, 0.6 )
 texture = ExtResource( 5 )
 
+[node name="Hitbox" parent="." instance=ExtResource( 16 )]
+collision_mask = 6
+gravity = 90.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+modulate = Color( 0.705882, 0.0666667, 0.0666667, 1 )
+position = Vector2( 32, 71 )
+rotation = -1.56918
+scale = Vector2( 1.26305, 3.02231 )
+shape = SubResource( 27 )
+one_way_collision_margin = 2.0
+
+[node name="deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 18 )
+volume_db = 12.0
+pitch_scale = 0.16
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+volume_db = 11.965
+
+[node name="Health" type="ColorRect" parent="."]
+margin_left = 26.0
+margin_top = 3.0
+margin_right = 45.0
+margin_bottom = 4.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Red" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+color = Color( 0.41954, 0.452638, 0.457031, 1 )
+
+[node name="Bar" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
 [connection signal="body_entered" from="jump" to="." method="_on_jump_body_entered"]
 [connection signal="body_exited" from="jump" to="." method="_on_jump_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
+[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 
 [editable path="Hurtbox"]
+[editable path="Hitbox"]
